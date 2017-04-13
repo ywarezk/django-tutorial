@@ -39,4 +39,10 @@
         {% endfor %}
     </ul>
 
+    <form method="POST">
+        {% csrf_token %}
+        {{ greeting_form }}
+        <input type="submit"/>
+    </form>
+
 {% endblock %}
