@@ -1,11 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hello world</title>
-</head>
-<body>
-    <h1>Hello world</h1>
-    <h3>From template</h3>
-</body>
-</html>
+{% extends 'hello/base.html' %}
+
+
+{% block title %}
+    Hello world
+{% endblock %}
+
+{% block content %}
+    <h1>{{ greeting }}</h1>
+
+    <h1>{{ my_func }}</h1>
+    <ul>
+        {% for item in my_array %}
+            <li>
+                {{ item }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h1>
+        If example
+    </h1>
+    {% if condition %}
+        <p>condition is true</p>
+    {% else %}
+        <p>condition is false</p>
+    {% endif %}
+
+    {% include "hello/includes/footer.html" %}
+
+    <h1>
+    Greetings
+    </h1>
+    <ul>
+        {% for greet in greetings %}
+            <li>
+                {{ greet.message }}
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
