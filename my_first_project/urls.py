@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from hello.views import hello_world
+from hello.views import hello_world, single_greeting
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^hello/', hello_world)
+    url(r'^hello/$', hello_world),
+    url(r'^hello/(?P<slug>[\w-]+)/$', single_greeting)
 ]

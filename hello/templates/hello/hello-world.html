@@ -34,7 +34,9 @@
     <ul>
         {% for greet in greetings %}
             <li>
-                {{ greet.message }}
+                <a href="/hello/{{ greet.slug }}/" >
+                    {{ greet.message }}
+                </a>
             </li>
         {% endfor %}
     </ul>

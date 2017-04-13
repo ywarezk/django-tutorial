@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from hello.models import Greeting
 from hello.forms import GreetingForm
 
@@ -18,6 +18,12 @@ def hello_world(request):
         'footer_message': 'Gil & Tom',
         'greetings': greetings,
         'greeting_form': my_form
+    })
+
+def single_greeting(request, slug=None):
+    greeting = get_object_or_404(Greeting, slug=slug)
+    return render(request, 'hello/single-greeting.html', context={
+        'greet': greeting
     })
 
 
