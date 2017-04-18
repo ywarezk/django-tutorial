@@ -30,7 +30,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'login_react',
     'rest_framework',
+    'register',
     'hello',
     'hello2',
     'django.contrib.admin',
