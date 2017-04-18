@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from hello.views import hello_world, single_greeting
+from hello2.views import say_hello2
+from hello.rest.login.login_viewset import Login
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello/$', hello_world),
-    url(r'^hello/(?P<slug>[\w-]+)/$', single_greeting)
+    url(r'^hello/(?P<slug>[\w-]+)/$', single_greeting),
+    url(r'^hello2/$', say_hello2),
+    url(r'^login/$', Login.as_view())
 ]
