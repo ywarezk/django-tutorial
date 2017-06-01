@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'register',
     'hello',
     'hello2',
+    'angular_todo',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

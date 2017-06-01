@@ -20,13 +20,18 @@ from hello2.views import say_hello2
 from hello.rest.login.login_viewset import Login
 from register.rest.register.register_viewset import Register
 from login_react.views import get_index
+from hello.rest.greeting.greeting_viewset import GreetingViewset
+from angular_todo.views import index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello/$', hello_world),
+    url(r'^api/greeting/$', GreetingViewset.as_view({'get': 'list', 'post': 'create'})),
+    url(r'^api/greeting/(?P<pk>[0-9]+)/$', GreetingViewset.as_view({'get': 'retrieve', 'put': 'update', 'delete':'destroy'})),
     url(r'^hello/(?P<slug>[\w-]+)/$', single_greeting),
     url(r'^hello2/$', say_hello2),
     url(r'^login/$', Login.as_view()),
     url(r'register/$', Register.as_view()),
+    url(r'todo/$', index),
     url(r'^$', get_index)
 ]
